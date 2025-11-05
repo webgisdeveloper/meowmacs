@@ -35,37 +35,29 @@
 ;; =============================================================================
 
 ;; Disable UI elements before they're rendered (faster startup)
-(push '(menu-bar-lines . 0) default-frame-alist)
-(push '(tool-bar-lines . 0) default-frame-alist)
-(push '(vertical-scroll-bars) default-frame-alist)
-(push '(horizontal-scroll-bars) default-frame-alist)
-
-;; Early GUI toggles must be guarded for batch/tty
-(when (fboundp 'menu-bar-mode) (menu-bar-mode -1))   ;; safe in tty too [web:49]
-(when (fboundp 'tool-bar-mode) (tool-bar-mode -1))   ;; safe in GUI only [web:49]
-(when (fboundp 'scroll-bar-mode) (scroll-bar-mode -1)) ;; GUI-only
-
-               
-;; Alternative method for Emacs 27+
+;; Set frame parameters before frame creation
 (setq default-frame-alist
-      (append (list
-               '(min-height . 1)
-               '(height . 45)
-               '(min-width . 1)
-               '(width . 101)
-               '(vertical-scroll-bars . nil)
-               '(horizontal-scroll-bars . nil)
-               '(internal-border-width . 0)
-               '(tool-bar-lines . 0)
-               '(menu-bar-lines . 0))))
+      '((min-height . 1)
+        (height . 45)
+        (min-width . 1)
+        (width . 101)
+        (vertical-scroll-bars . nil)
+        (horizontal-scroll-bars . nil)
+        (internal-border-width . 0)
+        (tool-bar-lines . 0)
+        (menu-bar-lines . 0)))
 
 ;; Set the initial frame size and appearance *before* the frame is created
 (setq initial-frame-alist
-      (append (list
-               '(height . 45)
-               '(width . 101)
-               '(menu-bar-lines . 0)
-               '(tool-bar-lines . 0))))
+      '((height . 45)
+        (width . 101)
+        (menu-bar-lines . 0)
+        (tool-bar-lines . 0)))
+
+;; Early GUI toggles must be guarded for batch/tty
+(when (fboundp 'menu-bar-mode) (menu-bar-mode -1))   ;; safe in tty too
+(when (fboundp 'tool-bar-mode) (tool-bar-mode -1))   ;; safe in GUI only
+(when (fboundp 'scroll-bar-mode) (scroll-bar-mode -1)) ;; GUI-only
 
 ;; Disable startup screens
 (setq inhibit-startup-screen t
@@ -73,18 +65,6 @@
       inhibit-startup-echo-area-message user-login-name
       inhibit-default-init t
       initial-scratch-message nil)
-
-;; Hairline dividers, theme-colored, no extra padding
-(setq window-divider-default-right-width 2
-      window-divider-default-bottom-width 2
-      window-divider-default-places t)
-(window-divider-mode 1)
-
-;; No frame padding for maximum content area
-(modify-all-frames-parameters '((internal-border-width . 0)))
-
-;; Slim, symmetric fringes for minimal gutters
-(when (fboundp 'fringe-mode) (fringe-mode '(4 . 4))) ;; GUI-only
 
 ;; =============================================================================
 ;; FRAME AND WINDOW OPTIMIZATION
@@ -97,9 +77,16 @@
       icon-title-format frame-title-format)
 
 ;; Window divider settings
-(setq window-divider-default-bottom-width 1
-      window-divider-default-places t
-      window-divider-default-right-width 1)
+(setq window-divider-default-right-width 2
+      window-divider-default-bottom-width 2
+      window-divider-default-places t)
+(window-divider-mode 1)
+
+;; No frame padding for maximum content area
+(modify-all-frames-parameters '((internal-border-width . 0)))
+
+;; Slim, symmetric fringes for minimal gutters
+(when (fboundp 'fringe-mode) (fringe-mode '(4 . 4))) ;; GUI-only
 
 ;; =============================================================================
 ;; NATIVE COMPILATION
