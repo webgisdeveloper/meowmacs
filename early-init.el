@@ -54,6 +54,22 @@
         (menu-bar-lines . 0)
         (tool-bar-lines . 0)))
 
+;; macOS-specific frame width fix
+;; On macOS, frame width sometimes needs to be set explicitly after frame creation
+(when (eq system-type 'darwin)
+  ;; Ensure width is at the front of the alist (higher priority)
+  (setq default-frame-alist
+        (cons '(width . 101) (assq-delete-all 'width default-frame-alist)))
+  (setq initial-frame-alist
+        (cons '(width . 101) (assq-delete-all 'width initial-frame-alist)))
+  
+  ;; Force frame width after GUI initialization
+  (add-hook 'window-setup-hook
+            (lambda ()
+              (when (display-graphic-p)
+                (set-frame-width (selected-frame) 101)))))
+
+
 ;; Early GUI toggles must be guarded for batch/tty
 (when (fboundp 'menu-bar-mode) (menu-bar-mode -1))   ;; safe in tty too
 (when (fboundp 'tool-bar-mode) (tool-bar-mode -1))   ;; safe in GUI only
