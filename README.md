@@ -1,4 +1,7 @@
 # MeowMacs
+```
+git clone https://github.com/webgisdeveloper/meowmacs ~/.config/meowmacs
+```
 
 # 🧠 Funmacs — Modern Emacs, Simplified
 

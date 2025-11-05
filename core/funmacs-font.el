@@ -6,9 +6,9 @@
 
 ;;; code
 
-(when (member "JetBrainsMono Nerd Font" (font-family-list))
-  (set-face-attribute 'default nil :family "JetBrainsMono Nerd Font" :height 120)
-  (set-face-attribute 'fixed-pitch nil :family "JetBrainsMono Nerd Font" :height 1.0)
+(when (member "0xProto Nerd Font Mono" (font-family-list))
+  (set-face-attribute 'default nil :family "0xProto Nerd Font Mono" :height 160)
+  (set-face-attribute 'fixed-pitch nil :family "0xProto Nerd Font Mono" :height 1.0)
   (set-face-attribute 'variable-pitch nil :family "Inter" :height 1.0))
 
 
