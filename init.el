@@ -17,6 +17,7 @@
 (require 'funmacs-git)
 (require 'funmacs-font)
 ;;(require 'funmacs-treesitter)
+(require 'meowmacs-treesit-auto)
 (require 'funmacs-whichkey)
 (require 'funmacs-vundo)
 (require 'funmacs-eglot)
