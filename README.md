@@ -1,3 +1,5 @@
+# MeowMacs
+
 # 🧠 Funmacs — Modern Emacs, Simplified
 
 <div align="center">
