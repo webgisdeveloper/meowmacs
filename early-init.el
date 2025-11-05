@@ -54,20 +54,27 @@
         (menu-bar-lines . 0)
         (tool-bar-lines . 0)))
 
-;; macOS-specific frame width fix
-;; On macOS, frame width sometimes needs to be set explicitly after frame creation
+;; macOS-specific frame size fix
+;; On macOS, frame dimensions sometimes need to be set explicitly after frame creation
 (when (eq system-type 'darwin)
-  ;; Ensure width is at the front of the alist (higher priority)
+  ;; Ensure width and height are at the front of the alist (higher priority)
   (setq default-frame-alist
-        (cons '(width . 101) (assq-delete-all 'width default-frame-alist)))
+        (cons '(width . 101) 
+              (cons '(height . 45)
+                    (assq-delete-all 'height
+                                     (assq-delete-all 'width default-frame-alist)))))
   (setq initial-frame-alist
-        (cons '(width . 101) (assq-delete-all 'width initial-frame-alist)))
+        (cons '(width . 101)
+              (cons '(height . 45)
+                    (assq-delete-all 'height
+                                     (assq-delete-all 'width initial-frame-alist)))))
   
-  ;; Force frame width after GUI initialization
+  ;; Force frame size after GUI initialization
   (add-hook 'window-setup-hook
             (lambda ()
               (when (display-graphic-p)
-                (set-frame-width (selected-frame) 101)))))
+                (set-frame-width (selected-frame) 101)
+                (set-frame-height (selected-frame) 45)))))
 
 
 ;; Early GUI toggles must be guarded for batch/tty
