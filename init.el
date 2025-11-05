@@ -16,7 +16,7 @@
 (require 'funmacs-theme)
 (require 'funmacs-git)
 (require 'funmacs-font)
-(require 'funmacs-treesitter)
+;;(require 'funmacs-treesitter)
 (require 'funmacs-whichkey)
 (require 'funmacs-vundo)
 (require 'funmacs-eglot)
