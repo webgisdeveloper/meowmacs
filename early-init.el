@@ -51,7 +51,7 @@
                '(min-height . 1)
                '(height . 45)
                '(min-width . 1)
-               '(width . 81)
+               '(width . 101)
                '(vertical-scroll-bars . nil)
                '(horizontal-scroll-bars . nil)
                '(internal-border-width . 0)
