@@ -45,13 +45,6 @@
 (when (fboundp 'tool-bar-mode) (tool-bar-mode -1))   ;; safe in GUI only [web:49]
 (when (fboundp 'scroll-bar-mode) (scroll-bar-mode -1)) ;; GUI-only
 
-;; Set the initial frame size and appearance *before* the frame is created
-(setq initial-frame-alist
-      (append (list
-               '(height . 45)
-               '(width . 101)
-               '(menu-bar-lines . 0)
-               '(tool-bar-lines . 0))))
                
 ;; Alternative method for Emacs 27+
 (setq default-frame-alist
@@ -65,6 +58,14 @@
                '(internal-border-width . 0)
                '(tool-bar-lines . 0)
                '(menu-bar-lines . 0))))
+
+;; Set the initial frame size and appearance *before* the frame is created
+(setq initial-frame-alist
+      (append (list
+               '(height . 45)
+               '(width . 101)
+               '(menu-bar-lines . 0)
+               '(tool-bar-lines . 0))))
 
 ;; Disable startup screens
 (setq inhibit-startup-screen t
