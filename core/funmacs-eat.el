@@ -33,8 +33,7 @@
     (interactive)
     (let ((default-directory (project-root (project-current t))))
       (eat-other-window)))
-  (global-set-key (kbd "C-c e p") #'funmacs-eat-project)
-
+  (global-set-key (kbd "C-c e p") #'funmacs-eat-project))
 
 (provide 'funmacs-eat)
 
