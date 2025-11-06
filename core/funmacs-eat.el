@@ -4,8 +4,9 @@
   :defer t
   :commands (eat eat-other-window eat-project)
   :init
-  ;; Set default shell for eat
-  (setq eat-shell "/bin/bash") ;; Change to zsh/fish if you prefer
+  ;; Set default shell for eat with login shell
+  (setq eat-shell "/bin/bash"
+        eat-shell-options '("--login"))  ;; --login is equivalent to -l
 
   ;; Better scrolling
   (setq eat-term-maximum-scrollback 10000)
@@ -15,6 +16,17 @@
   (global-set-key (kbd "C-c e T") #'eat-other-window)
 
   :config
+  ;; Enable 256 color support in eat
+  (setq eat-term-name "xterm-256color")
+  
+  ;; Enable color output
+  (setq eat-enable-auto-line-mode t
+        eat-enable-blinking-text t
+        eat-enable-alternative-display t)
+  
+  ;; Keybindings
+  (global-set-key (kbd "C-c e t") #'eat)
+  (global-set-key (kbd "C-c e T") #'eat-other-window)
   ;; Integrate with project.el
   (defun funmacs-eat-project ()
     "Open an EAT terminal in the project root."
