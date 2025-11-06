@@ -10,9 +10,9 @@
   ;; Better scrolling
   (setq eat-term-maximum-scrollback 10000)
 
-  ;; Keybindings
-  (global-set-key (kbd "C-c t") #'eat)
-  (global-set-key (kbd "C-c T") #'eat-other-window)
+  ;; Keybindings - use C-c e prefix instead of conflicting C-c p
+  (global-set-key (kbd "C-c e t") #'eat)
+  (global-set-key (kbd "C-c e T") #'eat-other-window)
 
   :config
   ;; Integrate with project.el
@@ -21,7 +21,7 @@
     (interactive)
     (let ((default-directory (project-root (project-current t))))
       (eat-other-window)))
-  (global-set-key (kbd "C-c p t") #'funmacs-eat-project)
+  (global-set-key (kbd "C-c e p") #'funmacs-eat-project)
 
   ;; Optional: use nerd-icons for buffer names
   (with-eval-after-load 'nerd-icons
