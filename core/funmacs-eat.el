@@ -6,7 +6,7 @@
   :init
   ;; Explicitly source .bash_profile in eat terminal
   (setq eat-shell "/bin/bash"
-        eat-shell-options '("-c" "source ~/.bash_profile && exec bash -i"))
+        eat-shell-options '("--login" "-i"))
 
   ;; Better scrolling
   (setq eat-term-maximum-scrollback 10000)
