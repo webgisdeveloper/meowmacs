@@ -4,9 +4,9 @@
   :defer t
   :commands (eat eat-other-window eat-project)
   :init
-  ;; Use default login shell from environment
-  (setq eat-shell (getenv "SHELL")
-        eat-shell-options '("--login"))  ;; --login is equivalent to -l
+  ;; Explicitly source .bash_profile in eat terminal
+  (setq eat-shell "/bin/bash"
+        eat-shell-options '("-c" "source ~/.bash_profile && exec bash -i"))
 
   ;; Better scrolling
   (setq eat-term-maximum-scrollback 10000)
@@ -33,7 +33,7 @@
     (interactive)
     (let ((default-directory (project-root (project-current t))))
       (eat-other-window)))
-  (global-set-key (kbd "C-c e p") #'funmacs-eat-project))
+  (global-set-key (kbd "C-c e p") #'funmacs-eat-project)
 
 
 (provide 'funmacs-eat)
