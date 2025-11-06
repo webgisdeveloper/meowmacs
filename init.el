@@ -86,6 +86,7 @@
 (require 'funmacs-markdown)
 (require 'funmacs-toml)
 (require 'funmacs-docker)
+(require 'funmacs-yaml)
 
 (message "✅ Funmacs full config loaded!")
 (provide 'funmacs-init)
@@ -98,7 +99,7 @@
  '(package-selected-packages
    '(aidermacs apheleia async bind-key cape cl-generic cl-lib closql
 	       compat cond-let consult corfu csharp-mode dash
-	       dashboard dictionary doom-modeline edit-indirect
+	       dashboard dictionary doom-modeline eat edit-indirect
 	       editorconfig eglot eldoc eldoc-box eldoc-mouse
 	       elixir-ts-mode emacsql embark embark-consult erc
 	       exec-path-from-shell external-completion f faceup
@@ -113,10 +114,10 @@
 	       python reformatter s seq shrink-path so-long
 	       soap-client spinner ssass-mode svelte-mode svg tempel
 	       tempel-collection track-changes tramp transient treepy
-	       use-package valign verilog-mode vertico vterm
-	       vterm-toggle vue-html-mode vue-mode vundo wallpaper
-	       which-key window-tool-bar with-editor xref yaml
-	       zig-mode)))
+	       treesit-auto use-package valign verilog-mode vertico
+	       vterm vterm-toggle vue-html-mode vue-mode vundo
+	       wallpaper which-key window-tool-bar with-editor xref
+	       yaml zig-mode)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
