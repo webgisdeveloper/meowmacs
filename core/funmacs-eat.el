@@ -4,8 +4,8 @@
   :defer t
   :commands (eat eat-other-window eat-project)
   :init
-  ;; Set default shell for eat with login shell
-  (setq eat-shell "/bin/bash"
+  ;; Use default login shell from environment
+  (setq eat-shell (getenv "SHELL")
         eat-shell-options '("--login"))  ;; --login is equivalent to -l
 
   ;; Better scrolling
