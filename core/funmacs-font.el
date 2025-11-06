@@ -11,7 +11,7 @@
   (set-face-attribute 'fixed-pitch nil :family "0xProto Nerd Font Mono" :height 1.0)
   (set-face-attribute 'variable-pitch nil :family "Inter" :height 1.0))
 
-
+(setq-default line-spacing 0.2)
 
 (provide 'funmacs-font)
 
