@@ -24,7 +24,7 @@
                           (time-subtract after-init-time before-init-time)))
                  gcs-done))
   ;; Set the banner
-  (setq dashboard-startup-banner "~/.config/meowmacs/assets/txt/logo.txt")
+  (setq dashboard-startup-banner (expand-file-name "assets/txt/logo.txt" funmacs-dir))
   ;; Value can be
   ;; - nil to display no banner
   ;; - 'official which displays the official emacs logo
