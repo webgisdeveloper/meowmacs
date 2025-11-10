@@ -11,7 +11,7 @@
 ;; Enable relative line numbers in programming modes only
 (defun funmacs-enable-line-numbers ()
   "Enable relative line numbers for programming modes."
-  (setq display-line-numbers-type 'relative)
+  (setq display-line-numbers-type t)
   (display-line-numbers-mode 1))
 
 (add-hook 'prog-mode-hook #'funmacs-enable-line-numbers)
