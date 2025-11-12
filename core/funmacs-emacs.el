@@ -38,6 +38,9 @@
   ;; commands are hidden, since they are not used via M-x. This setting is
   ;; useful beyond Corfu.
   (read-extended-command-predicate #'command-completion-default-include-p)
+
+  ;; Always ask for y/n keypress instead of typing out 'yes' or 'no'
+  (use-short-answers t)
   )
 
 (provide 'funmacs-emacs)
